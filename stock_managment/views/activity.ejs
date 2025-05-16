@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <title>StockMaster Dashboard</title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/Activity.css">
+</head>
+
+<body>
+  <nav class="dashboard-nav">
+    <div class="nav-container">
+      <div class="logo">
+        <i class="fas fa-boxes"></i>
+        <span>StockMaster</span>
+      </div>
+      <div class="nav-items">
+
+  
+
+      </div>
+    </div>
+  </nav>
+
+  <div class="dashboard-container">
+    <aside class="sidebar">
+      <ul class="nav-menu">
+        <li>
+          <a href="/">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+          </a>
+        </li>
+        <li>
+          <a  href="/dashboard">
+            <i class="fas fa-tachometer-alt"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a href="/products">
+            <i class="fas fa-plus-circle"></i>
+            <span>Add Product</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="/aboutus">
+            <i class="fas fa-info-circle"></i>
+            <span>About Us</span>
+          </a>
+        </li>
+        <li>
+          <a class="active" href="/activity">
+            <i class="fas fa-chart-line"></i>
+            <span>Activity</span>
+          </a>
+        </li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <header class="content-header">
+        <h1><i class="fas fa-home"></i>History</h1>
+        <div class="breadcrumb">Dashboard / Home</div>
+      </header>
+
+
+<div class="activity-table">
+  <table>
+    <thead>
+      <tr>
+        <th>Activity</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for (let data of result) { %>
+        <tr>
+          <td><i class="fa-solid fa-chevron-right"></i> &nbsp;<%= data.activity %></td>
+        </tr>
+      <% } %>
+    </tbody>
+  </table>
+</div>
+
+
+
+      <script src="/js/home.js"></script>
+</body>
+
+</html>

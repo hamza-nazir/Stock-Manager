@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <title>StockMaster Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+ <link rel="stylesheet" href="/css/home.css">
+</head>
+<body>
+  <nav class="dashboard-nav">
+    <div class="nav-container">
+      <div class="logo">
+        <i class="fas fa-boxes"></i>
+        <span>StockMaster</span>
+      </div>
+      <div class="nav-items">
+        
+        
+      
+      </div>
+    </div>
+  </nav>
+
+  <div class="dashboard-container">
+    <aside class="sidebar">
+      <ul class="nav-menu">
+        <li>
+          <a href="/" class="active">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+          </a>
+        </li>
+        <li>
+          <a href="/dashboard">
+            <i class="fas fa-tachometer-alt"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a href="/products">
+            <i class="fas fa-plus-circle"></i>
+            <span>Add Product</span>
+          </a>
+        </li>
+       
+        <li>
+          <a href="/aboutus">
+            <i class="fas fa-info-circle"></i>
+            <span>About Us</span>
+          </a>
+        </li>
+        <li>
+          <a href="/activity">
+            <i class="fas fa-chart-line"></i>
+            <span>Activity</span>
+          </a>
+        </li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <header class="content-header">
+        <h1><i class="fas fa-home"></i> Home Overview</h1>
+        <div class="breadcrumb">Dashboard / Home</div>
+      </header>
+
+      <div class="metrics-section">
+        <!-- Prominent Budget Card -->
+        <div class="budget-highlight">
+          <div class="budget-header">
+            <i class="fas fa-piggy-bank"></i>
+            <h2>Total Products</h2>
+          </div>
+          <div id="abx" class="budget-value">
+<%let totalQuantity=0 %>
+<% for(data of result){%>
+<%totalQuantity+=data.quantity%>
+<%} %>
+     <%= totalQuantity%> 
+        </div>
+          <div class="budget-description">
+            Monthly budget allocated across all departments and needs
+          </div>
+          <div class="budget-trend positive">
+            <i class="fas fa-arrow-up"></i> 2.5% from last month
+          </div>
+        </div>
+
+        <!-- Three-column metrics grid -->
+        <div class="metrics-grid">
+          <div class="metric-item">
+            <div class="metric-header">
+              <i class="fas fa-receipt"></i>
+              <h3>Total Expenses</h3>
+            </div>
+            <div class="metric-value" style="color: orange;">
+              <%let totalPrice=0 %>
+<% for(data of result){%>
+<%totalPrice+=data.price%>
+<%} %>
+     <%= totalPrice%> 
+            </div>
+            <div class="metric-description">
+              Cumulative spending including utilities, rent, and supplies
+            </div>
+            <div class="metric-trend negative">
+              <i class="fas fa-arrow-up"></i> 8.3% from last month
+            </div>
+          </div>
+
+          <div class="metric-item">
+            <div class="metric-header"> 
+              <i class="fas fa-coins"></i>
+              <h3>Expire Stock</h3>
+            </div>
+            <div class="metric-value">
+           
+<a href="/expiry" class="expiry-link">
+  <i class="fas fa-clock"></i> Check Expiry
+</a>
+
+            </div>
+            <div class="metric-description">
+              Funds available to avoid overspending this month
+            </div>
+            <div class="metric-trend warning">
+              <i class="fas fa-arrow-down"></i> 5.8% from last month
+            </div>
+          </div>
+
+     
+        </div>
+      </div>
+
+      <div class="quick-actions">
+        <form action="/products">
+          <button class="action-btn ">
+            <i class="fas fa-plus"></i> Add Product
+          </button>
+        </form>
+      </div>
+    </main>
+  </div>
+  <script src="/js/home.js"></script>
+</body>
+</html>
